@@ -1,0 +1,77 @@
+<script type="text/javascript">
+	var num = new Array();
+	var size = 10;
+
+	for (var i=0; i < size; i++) { 
+		var rand = Math.floor(Math.random()*1000 + 1);
+	 	num.push(rand);
+	 }
+
+	 console.log(num);
+
+	 for (i=0; i < size; i++) { 
+	 	var min = num[i];
+	 	var index = i;
+
+	 	for (var j=i; j < size; j++) { 
+	 		if(num[j] < min)	{
+	 			min = num[j];
+	 			index = j;
+	 		}
+	 	}
+
+	 	var temp = num[i];
+	 	num[i] = num[index];
+	 	num[index] = temp;
+
+	}
+
+	console.log(num);
+
+
+	var num = new Array();
+	var size = 10;
+	var replace_max = size-1;
+
+	for (i=0; i < size; i++) { 
+	 	var rand = Math.floor(Math.random()*1000 + 1);
+	 	num.push(rand);
+	 }
+
+
+	console.log(num);
+
+	for (var i=0; i <= replace_max; i++) { 
+
+	 	var min = num[i];
+	 	var max = num[i];
+	 	var index_min = i;
+	 	var index_max = i;
+
+	 	for (var j=i; j <= replace_max; j++) { 
+	 		if(num[j] < min)	{
+	 			min = num[j];
+	 			index_min = j;
+	 		}
+
+	 		if(num[j] > max)	{
+	 			max = num[j];
+	 			index_max = j;
+	 		}
+	 	}
+
+	 	temp = num[i];
+	 	num[i] = min;
+	 	num[index_min] = temp;
+
+	 	if (index_max == i) index_max = index_min;
+	 	temp = num[replace_max];
+	 	num[replace_max] = max;
+	 	num[index_max] = temp;
+	 	replace_max--;
+
+	 }
+
+	 console.log(num);
+
+</script>
